@@ -2,25 +2,12 @@ import { Link } from "react-router-dom";
 
 import { TbListDetails } from "react-icons/tb";
 
-import { TbShoppingBagCheck } from "react-icons/tb";
+import { Buttons } from "./Buttons";
 
-import { MdDeleteOutline } from "react-icons/md";
-
-import { productQuantity, shortedText } from "../helper";
-
-import { useCart } from "../context/CartContext";
+import { shortedText } from "../helper";
 
 export const Card = ({ data }) => {
   const { id, image, title, price } = data;
-
-  const [state, dispatch] = useCart();
-
-  const quantity = productQuantity(state, id);
-  console.log(quantity);
-
-  const clickHandler = (type) => {
-    dispatch({ type, payload: data });
-  };
 
   return (
     <div className="w-270 m-2.5 p-5 flex flex-col items-start justify-end bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl ">
@@ -40,41 +27,7 @@ export const Card = ({ data }) => {
         >
           <TbListDetails />
         </Link>
-        <div className="flex justify-center items-center ">
-          {quantity === 1 && (
-            <button
-              onClick={() => clickHandler("REMOVE_ITEM")}
-              className="bg-[#fe5d42] mr-2 text-white border-none rounded-lg text-[1.7rem] h-8 w-8 leading-8 p-0.5"
-            >
-              <MdDeleteOutline />
-            </button>
-          )}
-
-          {quantity > 1 && (
-            <button
-              onClick={() => clickHandler("DECREASE")}
-              className="bg-[#fe5d42] mr-2   text-white border-none rounded-lg text-[1.7rem] h-8 w-8 leading-8 p-0.5 flex items-center justify-center"
-            >
-              -
-            </button>
-          )}
-          <span>{!!quantity && quantity}</span>
-          {quantity === 0 ? (
-            <button
-              onClick={() => clickHandler("ADD_ITEM")}
-              className="bg-[#fe5d42] text-white border-none rounded-lg text-[1.7rem] h-8 w-8 leading-8 p-0.5 items-center"
-            >
-              <TbShoppingBagCheck />
-            </button>
-          ) : (
-            <button
-              onClick={() => clickHandler("INCREASE")}
-              className="bg-[#fe5d42] ml-2 text-white border-none rounded-lg text-[1.7rem] h-8 w-8 leading-8 p-0.5 flex items-center justify-center"
-            >
-              +
-            </button>
-          )}
-        </div>
+        <Buttons id={id} data={data} />
       </div>
     </div>
   );
