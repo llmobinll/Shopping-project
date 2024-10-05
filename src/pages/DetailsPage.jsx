@@ -15,11 +15,11 @@ function DetailsPage() {
   if (!product) return <Loader />;
 
   return (
-    <div className="flex justify-center items-center mt-24 ">
+    <div className="flex justify-center items-center mt-24 h-full ">
       <img
         src={product.image}
         alt={product.image}
-        className="w-[250px] h-fit bg-white py-[25px] px-[15px] border-2 border-dashed border-[#fe5d42] rounded-[50px]"
+        className="w-[250px] h-[300px] bg-white py-[25px] px-[15px] border-2 border-dashed border-[#fe5d42] rounded-[50px]"
       />
       <div className="w-full border-2 border-dashed border-[#e2e2e2] m-2.5 p-[30px] rounded-[50px] bg-white relative">
         <h3 className="text-[#fe5d42] text-2xl mb-10 font-bold">
@@ -34,7 +34,7 @@ function DetailsPage() {
           </span>
           <Link
             to="/products"
-            className="flex items-center gap-2 font-semibold bg-[#fe5d42] rounded-[20px] text-white p-1 "
+            className="flex items-center gap-2 font-semibold bg-[#fe5d42] rounded-[20px] text-white p-2 "
           >
             <FaArrowLeft />
             <span>Back to shop</span>
