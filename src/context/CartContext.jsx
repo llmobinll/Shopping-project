@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+
 import { sumProducts } from "../helper";
 
 const initialState = {
@@ -64,6 +65,7 @@ const reducer = (state, action) => {
 };
 
 const CartContext = createContext();
+
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
@@ -72,6 +74,7 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
 export const useCart = () => {
   const { state, dispatch } = useContext(CartContext);
   return [state, dispatch];

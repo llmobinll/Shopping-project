@@ -1,5 +1,4 @@
 import { TbShoppingBagCheck } from "react-icons/tb";
-
 import { MdDeleteOutline } from "react-icons/md";
 
 import { useCart } from "../context/CartContext";

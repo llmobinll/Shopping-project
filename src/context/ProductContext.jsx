@@ -7,6 +7,7 @@ import api from "../services/config";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductContext = createContext();
+
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 

@@ -1,24 +1,29 @@
+import { useState } from "react";
+
 import { TbChecklist } from "react-icons/tb";
-
 import { FaHashtag } from "react-icons/fa";
-
 import { LuCheckCircle } from "react-icons/lu";
 
 import { useCart } from "../context/CartContext";
-import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 export const CheckoutStatus = () => {
   const [state, dispatch] = useCart();
   const { total, itemsCounter, checkout } = state;
   const [checkoutButton, setCheckoutButton] = useState(checkout);
+
   const checkoutHandler = () => {
-    console.log(state);
-    console.log(checkoutButton);
-    return setCheckoutButton(!checkoutButton);
+    if (!!itemsCounter) {
+      setCheckoutButton(!checkoutButton);
+    } else {
+      toast("Your shopping cart is empty!", { position: "top-center" });
+    }
   };
 
   return (
     <div className="bg-[#fff] border-2 border-dashed border-[#fd5e42] rounded-[20px] h-fit  w-[200px] p-4 ">
+      <ToastContainer />
+
       <div className="flex items-center mb-3 text-[#fe5d42] text-lg">
         <TbChecklist />
         <p className=" font-bold">Total: </p>

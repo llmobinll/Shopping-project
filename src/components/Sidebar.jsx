@@ -1,7 +1,6 @@
 import { FaListUl } from "react-icons/fa";
 
 import { createQueryObject } from "../helper";
-
 import { categories } from "../constants/categories";
 
 export const Sidebar = ({ query, setQuery, setSearch }) => {
@@ -13,7 +12,6 @@ export const Sidebar = ({ query, setQuery, setSearch }) => {
     setQuery((query) => createQueryObject(query, { category }));
     setSearch("");
   };
-  console.log(query);
   return (
     <div className=" bg-[#fff] border-2 border-dashed border-[#fd5e42] rounded-[20px] h-fit mt-2 ml-7 w-[220px] p-4 ">
       <div className="flex gap-1 items-center pb-2 text-[#fd5e42] font-semibold ">

@@ -1,13 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 
-import { SiOpenproject } from "react-icons/si";
-
 import { IoMdPricetag } from "react-icons/io";
-
 import { FaArrowLeft } from "react-icons/fa6";
 
-import { useProductDetails } from "../context/ProductContext";
 import { Loader } from "../components/Loader";
+
+import { useProductDetails } from "../context/ProductContext";
 
 function DetailsPage() {
   const { id } = useParams();

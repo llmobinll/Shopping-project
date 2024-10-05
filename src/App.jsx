@@ -1,11 +1,14 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+
+import { Layout } from "./layout";
 import ProductsPage from "./pages/ProductsPage";
 import DetailsPage from "./pages/DetailsPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import PageNotFound from "./pages/404";
+
 import { ProductProvider } from "./context/ProductContext";
+
 import { CartProvider } from "./context/CartContext";
-import { Layout } from "./layout";
 
 function App() {
   return (
